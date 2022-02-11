@@ -33,5 +33,11 @@ def message_hello(message, say):
     say(f"Hey there <@{message['user']}>!")
 
 
+@app.event("app_mention")
+def event_app_mention(event, say):
+    logger.info(f"{event=}")
+    say("What's up?")
+
+
 if __name__ == "__main__":
     SocketModeHandler(app, CONST_SLACK_BOT_APP_LEVEL_TOKEN).start()
