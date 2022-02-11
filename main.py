@@ -27,5 +27,11 @@ if not CONST_SLACK_BOT_APP_LEVEL_TOKEN:
 
 app = App(token=CONST_SLACK_BOT_USER_OAUTH_TOKEN)
 
+
+@app.message("hello")
+def message_hello(message, say):
+    say(f"Hey there <@{message['user']}>!")
+
+
 if __name__ == "__main__":
     SocketModeHandler(app, CONST_SLACK_BOT_APP_LEVEL_TOKEN).start()
